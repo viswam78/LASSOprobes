@@ -2,7 +2,7 @@
 Author: Viswanadham Sridhara
 Date: 21 February 2017
 Title: R markdown file using sample input files
-Project: Engineered DNA Capture Probes for Massively Multiplexed Cloning of Kilobase-Sized Genome Regions
+Project: Long Adapter Single Stranded Oligonucleotide (LASSO) Probes for Massively Multiplexed Cloning of Kilobase-Sized Genome Regions
 ---
 ```{r}
 # loading all the required packages
