@@ -1,3 +1,19 @@
+#---
+#Author: Viswanadham Sridhara
+#Date: 10 February 2019
+#Title: Snakefile describing different aspects of the NGS pipeline used
+#Project: Long Adapter Single Stranded Oligonucleotide (LASSO) Probes for Massively Multiplexed Cloning of Kilobase-Sized Genome Regions
+#---
+# To run the below pipeline, you need the reads and the fasta files.
+# Below, you can find the information on how to get the reads from NCBI SRA portal and the fasta file (i.e., k12_profile.fasta)
+
+# These SRRs are from the project description from NCBI portal
+# https://www.ncbi.nlm.nih.gov/sra/SRX1981073[accn]
+# Use sra-tools fasterq-dump to dump the SRRs used in the project
+
+# The fasta used in this analyses is from
+# https://www.ncbi.nlm.nih.gov/genome?term=NC_000913.3&cmd=DetailsSearch
+
 all_ecoli_samples = ['SRR3956929', 'SRR5468269', 'SRR5468390', 'SRR5468391', 'SRR5468392', 'SRR5468393', 'SRR5468394']
 
 ecoli_samples = ['SRR3956929']
