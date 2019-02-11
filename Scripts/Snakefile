@@ -1,0 +1,60 @@
+all_ecoli_samples = ['SRR3956929', 'SRR5468269', 'SRR5468390', 'SRR5468391', 'SRR5468392', 'SRR5468393', 'SRR5468394']
+
+ecoli_samples = ['SRR3956929']
+#rule bowtie_index_build:
+#    input:
+#        "k12_profile.fasta"
+#    shell:
+#        "bowtie2-build {input} k12Index/k12_profile"
+
+
+#rule bowtie_map:
+#    input:
+#        expand("{sample}.fastq", sample=ecoli_samples)
+#    output:
+#        expand("{sample}.sam", sample=ecoli_samples)
+#    shell:
+#        "bowtie2 -x k12Index/k12_profile -p 4 --very-sensitive --no-unal -U {input} -S {output} -k 1"
+
+
+#rule samtools_view:
+#    input:
+#        expand("{sample}.sam", sample=ecoli_samples)
+#    output:
+#        expand("{sample}.bam", sample=ecoli_samples)
+#    shell:
+#        "samtools view -q 30 -bS {input} > {output}"
+
+
+#rule samtools_sort:
+#    input:
+#        expand("{sample}.bam", sample=ecoli_samples)
+#    output:
+#        expand("{sample}.Sorted", sample=ecoli_samples)
+#    shell:
+#        "samtools sort {input} > {output}"
+
+#rule bedtools_coverageBed:
+#    input:
+#        expand("{sample}.Sorted", sample=ecoli_samples)
+#    output:
+#        expand("{sample}.target", sample=ecoli_samples)
+#    shell:
+#        "coverageBed -b {input} -a regionIndex/targetk12chr.bed -wa > {output}"
+
+
+#rule bedtools_coverageBed_depth:
+#    input:
+#        expand("{sample}.Sorted", sample=ecoli_samples)
+#    output:
+#        expand("{sample}.d_target", sample=ecoli_samples)
+#    shell:
+#        "coverageBed -b {input} -a regionIndex/targetk12chr.bed -d > {output}"
+
+rule bedtools_run_once:
+    input:
+        "k12_profile.fasta"
+    output:
+        "targetsCoverageATGC.txt"
+    shell:
+        "bedtools nuc -fi {input} -bed regionIndex/targetk12chr.bed > {output}"
