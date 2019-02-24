@@ -12,4 +12,4 @@ As the catalogue of sequenced genomes and metagenomes continues to grow, massive
 
 
 
-Bitbucket repo: https://bitbucket.org/viswam78/deepngsanalyses/
+Bitbucket repo: https://bitbucket.org/viswam78/LASSOprobes/
